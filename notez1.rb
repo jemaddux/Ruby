@@ -6,10 +6,10 @@ V -> View(s) - Take DATA from the Controller and ==render==> into an output form
 
 
 DATABASES
-*Storing, searching, calculating, sorting
-*Tables - store related structured data
-*Rows - a collection of data w/in a table
-*Entry/Element - an individual element of date (~="cell")
+**Storing, searching, calculating, sorting
+**Tables - store related structured data
+**Rows - a collection of data w/in a table
+**Entry/Element - an individual element of date (~="cell")
 
 Database types - VarChar, Text, Integer, DateTime, Boolean
 
