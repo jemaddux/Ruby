@@ -5,4 +5,6 @@ class Zombie
     @name = "Ash"
     @brains = 0
   end
+
+  
 end
