@@ -10,7 +10,7 @@ array_by_array = [
 array_by_array.each do |x|
 	if x[keys[:age]] == 28
 		puts x.to_s
-		#puts keys[:age].to_s
+		puts keys[:age].to_s
 	end
 end
 

@@ -4,10 +4,10 @@ puts "debugger program"
 
 debugger
 
-@name = "john maddux"
+@name = "me"
 
 puts @name
 
-puts "some other stuff"
+puts "stuff"
 
 puts "some more stuff"
