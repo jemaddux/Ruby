@@ -2,16 +2,12 @@ class PrimeNumber
   def find_up_to(input)
     primes = []
     (0..input).each do |number|
-      if number%2==0
-
-      else
+      unless number%2 == 0
         prime = true
         (0..10).each do |sub|
           prime = false
         end
-        if prime == true
-          puts number
-        end
+        puts number if prime == true
       end
     end
   end
