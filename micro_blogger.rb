@@ -30,20 +30,20 @@ class MicroBlogger
 		command = ""
 		while command != "q"
 			printf "enter command: "
-			input = gets.chomp 
+			input = gets.chomp
 			parts = input.split(" ")
 			command = parts[0]
 			case command
-				when 'q' then puts "Goodbye!"
-				when 't' then tweet(parts[1..-1].join(" "))
-				when 'dm' then dm(parts[1].to_s, parts[2..-1].join(" ").to_s)
-				when 'spam' then spam_my_followers(parts[1..-1].join(" "))
-				when 'elt' then everyones_last_tweet
-				when 's' then shorten(parts[1..-1].join(" "))
-				when 'turl' then tweet(parts[1..-2].join(" ") + " " + shorten(parts[-1]))
-				when 'k' then get_klout
-				else
-					puts "Sorry, I don't know how to #{command}"
+			when 'q' then puts "Goodbye!"
+			when 't' then tweet(parts[1..-1].join(" "))
+			when 'dm' then dm(parts[1].to_s, parts[2..-1].join(" ").to_s)
+			when 'spam' then spam_my_followers(parts[1..-1].join(" "))
+			when 'elt' then everyones_last_tweet
+			when 's' then shorten(parts[1..-1].join(" "))
+			when 'turl' then tweet(parts[1..-2].join(" ") + " " + shorten(parts[-1]))
+			when 'k' then get_klout
+			else
+				puts "Sorry, I don't know how to #{command}"
 			end
 		end
 	end
