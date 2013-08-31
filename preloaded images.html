@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Preloaded Images</title>
+  <meta charset="utf-8">
+  <meta name="author" content="John Maddux">
+  <meta name="keywords" content="preloaded images">
+  <meta name="description" content="A simple webpage with a JQuery applet that shows off images.">
+  <link rel="icon" type="image/icon" href="images/JE16px.jpg">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <style>
+    div.main {
+	  width: 900px;
+	  height: 1000px;
+	  background-color: lightgreen;
+	  //border-radius: 15px;
+	  margin: auto;
+	  padding: 10px;
+	}
+    
+    
+    
+  </style>
+</head>
+<body>
+  <div class="main">
+    <img src="images/bunny.jpg">
+    
+    <script type="text/javascript">
+	  var preloadImages = ['images/bunny.jpg', 'images/cat.jpg', 'images/dog.jpg', 'images/goose.jpg'];
+	  var imgs = [];
+	  for (var i=0; i<preloadImages.length; i++){
+	    imgs[i] = new Image();
+		imgs[i].src = preloadImages[i];
+		
+	  }
+    </script>
+  </div>
+</body>
+</html>

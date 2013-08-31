@@ -1,0 +1,233 @@
+<html>
+<head>
+<title>Tic Tac Toe</title>
+<style>
+.main{
+	width: 950px;
+	margin: auto;
+	background-color: lightblue;
+	border-radius: 15px;
+}
+.bx{
+	width: 100px;
+	height: 100px;
+	background-color: #003333;
+	float: left;	
+	vertical-align: middle;
+	text-align: center;
+}
+.center{
+	width: 400px;
+	margin: auto;
+}
+h3{
+	font-size: 50px;
+	display: inline;
+}
+h4{
+	font-size: 50px;
+	display: inline;
+}
+#box7{
+	border-bottom: 2px solid black;
+	border-right: 2px solid black; 
+}
+#box8{
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black; 
+}
+#box9{
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+}
+#box4{
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black; 
+}
+#box5{
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black; 
+}
+#box6{
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+}
+#box1{
+	border-top: 2px solid black;
+	border-right: 2px solid black; 
+}
+#box2{
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black; 
+}
+#box3{
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="main">
+<p><br><h1 class="center" id="h1" style="width: 225px;">Tic-Tac-Toe</h1></p>
+<p class="center" style="width: 500px;">Click any box to start playing the game. You are playing as X, the computer is playing as O. Refresh the page to clear the page or hit the new game button to play again. <button>New Game</button> <div class="winner"></div></p><br>
+
+
+	<div class="center">
+	<div class="bx" id="box7"><h3 id="Xbox7">X</h3><h4 id="Ybox7">O</h4></div>
+	<div class="bx" id="box8"><h3 id="Xbox8">X</h3><h4 id="Ybox8">O</h4></div>
+	<div class="bx" id="box9"><h3 id="Xbox9">X</h3><h4 id="Ybox9">O</h4></div>
+	<div class="bx" id="box4"><h3 id="Xbox4">X</h3><h4 id="Ybox4">O</h4></div>
+	<div class="bx" id="box5"><h3 id="Xbox5">X</h3><h4 id="Ybox5">O</h4></div>
+	<div class="bx" id="box6"><h3 id="Xbox6">X</h3><h4 id="Ybox6">O</h4></div>
+	<div class="bx" id="box1"><h3 id="Xbox1">X</h3><h4 id="Ybox1">O</h4></div>
+	<div class="bx" id="box2"><h3 id="Xbox2">X</h3><h4 id="Ybox2">O</h4></div>
+	<div class="bx" id="box3"><h3 id="Xbox3">X</h3><h4 id="Ybox3">O</h4></div>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br>
+
+</div>
+</body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var boxArray = [0,0,0,0,0,0,0,0,0]; //Where 0=empty, 1=X and 2=Y
+	var numBoxesClicked = 0;
+	var winner = 0; //Where 0=empty, 1=X and 2=Y
+
+	function newGame(){
+		boxArray = [0,0,0,0,0,0,0,0,0];
+		numBoxesClicked = 0;
+		winner = 0; //Where 0=empty, 1=X and 2=Y
+		$('h3').hide();
+		$('h4').hide();
+	}
+	
+	function run_the_Nums(z){
+		if(boxArray[6]===z&&boxArray[7]===z&&boxArray[8]==z){winner=z;}
+		if(boxArray[3]===z&&boxArray[4]===z&&boxArray[5]==z){winner=z;}
+		if(boxArray[0]===z&&boxArray[1]===z&&boxArray[2]==z){winner=z;}
+		if(boxArray[6]===z&&boxArray[3]===z&&boxArray[0]==z){winner=z;}
+		if(boxArray[7]===z&&boxArray[4]===z&&boxArray[1]==z){winner=z;}
+		if(boxArray[8]===z&&boxArray[5]===z&&boxArray[2]==z){winner=z;}
+		if(boxArray[6]===z&&boxArray[4]===z&&boxArray[2]==z){winner=z;}
+		if(boxArray[0]===z&&boxArray[4]===z&&boxArray[8]==z){winner=z;}
+	}
+
+	function is_winner(){
+		run_the_Nums(1);
+		run_the_Nums(2);
+		if(winner===1){
+			$('.winner').append("<H2>The Xs win!!!</H2>");
+		}
+		if(winner===2){
+			$('.winner').append("<H2>The Os Win!!!!</H2>");	
+		}
+	}
+
+	function CpusTurn(boxJustClicked){
+		$('#Xbox'+boxJustClicked).show();
+		numBoxesClicked +=1;
+		boxArray[boxJustClicked-1] = 1;
+		var playing = true;
+		var cpusBox = -1;
+
+		is_winner();
+		if(numBoxesClicked<9&&winner===0){
+			if(numBoxesClicked===1){
+				if (boxJustClicked!=5){
+					$('#Ybox5').show();
+					boxArray[4]=2;
+					numBoxesClicked+=1;
+				}else{
+					while (playing){
+						cpusBox = Math.floor(Math.random()*9+1);
+						if(boxArray[cpusBox-1]===0){
+							playing = false;
+							$('#Ybox'+cpusBox).show();
+							boxArray[cpusBox-1]=2;
+							numBoxesClicked+=1;
+						}
+					}
+				}
+			}else if(numBoxesClicked>1){
+				while (playing){
+					cpusBox = Math.floor(Math.random()*9+1);
+					if(boxArray[cpusBox-1]===0){
+						playing = false;
+						$('#Ybox'+cpusBox).show();
+						boxArray[cpusBox-1]=2;
+						numBoxesClicked+=1;
+					}
+				}
+			}
+			is_winner();
+		}else if(numBoxesClicked===9){
+			if(winner===0){
+				$('.winner').append("<H2>Draw!</H2>");
+			}
+		}
+	}
+
+	$('h3').hide();
+	$('h4').hide();
+	$("#box1").click(function(){
+		CpusTurn(1);
+	});
+	$("#box2").click(function(){
+		CpusTurn(2);
+	});
+	$("#box3").click(function(){
+		CpusTurn(3);
+	});
+	$("#box4").click(function(){
+		CpusTurn(4);
+	});
+	$("#box5").click(function(){
+		CpusTurn(5);
+	});
+	$("#box6").click(function(){
+		CpusTurn(6);
+	});
+	$("#box7").click(function(){
+		CpusTurn(7);
+	});
+	$("#box8").click(function(){
+		CpusTurn(8);
+	});
+	$("#box9").click(function(){
+		CpusTurn(9);
+	});
+	$('button').click(function(){
+		newGame();
+	});
+	newGame();
+});</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
