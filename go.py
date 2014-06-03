@@ -32,9 +32,59 @@ class Board(object):
 
   def move(self, color, row, col):
     self.board[row][col] = color
-    for row in self.board:
-      for sq in row:
-        print sq
+    other_color = (1 if color == 2 else 2)
+    captured_left   = "Undertermined"
+    captured_right  = "Undertermined"
+    captured_top    = "Undertermined"
+    captured_bottom = "Undertermined"
+
+    for x in range(0, 18):
+      for y in range(0, 18):
+        if self.board[x][y] == 1 or self.board[x][y] == 2:
+          print "Captured piece"
+
+          # num = 1
+          # while True:
+          #   if self.board[x][y] == 0:
+          #     break
+          #   if self.board[x][y - num] == 0: captured_left = False
+          #   if self.board[x][y - num] == other_color: captured_left = True
+          #   num += 1
+          #   if captured_left == True or captured_left == False:
+          #     break
+
+          # num = 1
+          # while True:
+          #   if self.board[x][y] == 0:
+          #     break
+          #   if self.board[x][y + num] == 0: captured_right = False
+          #   if self.board[x][y + num] == other_color: captured_right = True
+          #   num += 1
+          #   if captured_right == True or captured_right == False:
+          #     break
+
+          # num = 1
+          # while True:
+          #   if self.board[x][y] == 0:
+          #     break
+          #   if self.board[x - num][y] == 0: captured_top = False
+          #   if self.board[x - num][y] == other_color: captured_top = True
+          #   num += 1
+          #   if captured_top == True or captured_top == False:
+          #     break
+
+          # num = 1
+          # while True:
+          #   if self.board[x][y] == 0:
+          #     break
+          #   if self.board[x + num][y] == 0: captured_bottom = False
+          #   if self.board[x + num][y] == other_color: captured_bottom = True
+          #   num += 1
+          #   if captured_bottom == True or captured_top == False:
+          #     break
+
+          # if captured_top == True and captured_right == True and captured_left == True:
+          #   print "Captured piece"
 
 b = Board()
 b.move(BLACK, 4, 4)
