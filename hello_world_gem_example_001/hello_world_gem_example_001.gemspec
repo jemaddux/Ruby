@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = HelloWorldGemExample001::VERSION
   spec.authors       = ["John Maddux"]
   spec.email         = ["jemaddux@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{summary}
+  spec.description   = %q{description}
+  spec.homepage      = "http://jemaddux.com"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
